@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION CalculateFactorial(n NUMBER) RETURN NUMBER IS
+    result NUMBER := 1;
+BEGIN
+    IF n < 0 THEN
+        -- Factorial is not defined for negative numbers
+        RETURN NULL;
+    ELSIF n = 0 THEN
+        -- The factorial of 0 is 1
+        RETURN 1;
+    ELSE
+        -- Calculate the factorial for positive integers
+        FOR i IN 1..n LOOP
+            result := result * i;
+        END LOOP;
+        RETURN result;
+    END IF;
+END;
+/
